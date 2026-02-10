@@ -4,14 +4,19 @@ import Sidebar from './Comp/Sidebar';
 
 function App() {
   return (
-    <div className="flex bg-gray-50 min-h-screen font-['Poppins']">
+    // 1. 'flex' hata diya (Zaroorat nahi kyun ke Sidebar fixed hai)
+    // 2. 'h-screen overflow-hidden' rakha taakay body scroll na ho
+    <div className="bg-gray-50 h-screen overflow-hidden font-['Poppins']">
+        
         <Sidebar/>
         
         {/* Right Side Content Area */}
-        {/* Yahan se padding hata di hai taakay Navbar full width ho */}
-        <div className="flex-1 lg:ml-[280px] transition-all duration-300 w-full">
+        {/* 1. 'w-full' aur 'flex-1' hata diya (Horizontal scroll fix) */}
+        {/* 2. 'h-full overflow-y-auto' rakha (Vertical scroll fix) */}
+        <div className="lg:ml-[280px] transition-all duration-300 h-full overflow-y-auto custom-scrollbar">
             <Main/>
         </div>
+
     </div>
   );
 }
